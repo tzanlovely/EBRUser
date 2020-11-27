@@ -38,7 +38,7 @@ public class ReturnBikeListPane extends JScrollPane {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.returnBike(singlePane.getOrder());
+                new PaymentDialog(controller);
             }
         });
     }

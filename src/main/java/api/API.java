@@ -26,6 +26,38 @@ public class API {
         order.setReturnBikePark(700000);
         list.add(order);
 
+        order = new Order();
+        order.setBikeID(500000);
+        order.setCheckin(new Date());
+        order.setCheckout(new Date());
+        order.setRentBikeParkID(60000);
+        order.setReturnBikePark(700000);
+        list.add(order);
+
+        order = new Order();
+        order.setBikeID(500000);
+        order.setCheckin(new Date());
+        order.setCheckout(new Date());
+        order.setRentBikeParkID(60000);
+        order.setReturnBikePark(700000);
+        list.add(order);
+
+        order = new Order();
+        order.setBikeID(500000);
+        order.setCheckin(new Date());
+        order.setCheckout(new Date());
+        order.setRentBikeParkID(60000);
+        order.setReturnBikePark(700000);
+        list.add(order);
+
+        order = new Order();
+        order.setBikeID(500000);
+        order.setCheckin(new Date());
+        order.setCheckout(new Date());
+        order.setRentBikeParkID(60000);
+        order.setReturnBikePark(700000);
+        list.add(order);
+
         return list;
     }
 }
