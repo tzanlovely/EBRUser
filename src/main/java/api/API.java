@@ -1,5 +1,6 @@
 package api;
 
+import model.Bike;
 import model.Order;
 
 import java.util.ArrayList;
@@ -59,5 +60,9 @@ public class API {
         list.add(order);
 
         return list;
+    }
+
+    public Bike getBike() {
+        return new Bike();
     }
 }

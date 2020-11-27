@@ -19,10 +19,12 @@ public class ReturnBikeSinglePane extends JPanel {
     private JLabel amount;
     private GridBagLayout layout;
     private GridBagConstraints c;
+    private long diffmilis;
 
-    public ReturnBikeSinglePane(Order order) {
-        buildControl();
+    public ReturnBikeSinglePane(Order order, Bike bike) {
         this.order = order;
+        this.bike = bike;
+        buildControl();
         updateData(order);
     }
 
@@ -101,7 +103,7 @@ public class ReturnBikeSinglePane extends JPanel {
     private String getDifference() {
         Date current = new Date();
         this.current.setText(current.toString());
-        long diffmilis = Math.abs(current.getTime() - order.getCheckin().getTime());
+        diffmilis = Math.abs(current.getTime() - order.getCheckin().getTime());
 
         String formattedDuration = DurationFormatUtils.formatDuration(diffmilis,"HH:mm:ss");
 
@@ -110,6 +112,8 @@ public class ReturnBikeSinglePane extends JPanel {
 
     private float calculateAmount() {
         float amount = 0f;
+
+        amount = bike.getPrice()*diffmilis/100000;
 
         return  amount;
     }

@@ -34,11 +34,12 @@ public class ReturnBikeListPane extends JScrollPane {
     public void decorateSinglePane(ReturnBikeSinglePane singlePane) {
         JButton button = new JButton("Return bike");
         singlePane.addDataHandlingComponent(button);
+        button.setBackground(Color.MAGENTA);
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new PaymentDialog(controller);
+                new PaymentDialog(controller, singlePane.getOrder());
             }
         });
     }
@@ -52,7 +53,7 @@ public class ReturnBikeListPane extends JScrollPane {
             ReturnBikeSinglePane singlePane = controller.createSinglePane(order);
             decorateSinglePane(singlePane);
             pane.add(singlePane);
-            pane.add(Box.createRigidArea(new Dimension(0, 40)));
+            pane.add(Box.createRigidArea(new Dimension(0, 20)));
         }
     }
 }

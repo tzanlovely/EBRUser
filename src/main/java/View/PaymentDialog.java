@@ -1,11 +1,13 @@
 package View;
 
 import controller.ReturnBikeController;
+import model.Order;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class PaymentDialog extends JDialog {
     private JLabel viewNumber;
@@ -17,12 +19,14 @@ public class PaymentDialog extends JDialog {
     private GridBagConstraints c;
 
     private ReturnBikeController controller;
+    private Order order;
 
 
-    public PaymentDialog(ReturnBikeController controller) {
+    public PaymentDialog(ReturnBikeController controller, Order order) {
         super((Frame)null, "Payment", true);
 
         this.controller = controller;
+        this.order = order;
 
         viewNumber = new JLabel("Account number: ");
         viewName = new JLabel("Your name: ");
@@ -51,6 +55,9 @@ public class PaymentDialog extends JDialog {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println(new Date(e.getWhen()).toString());
+                order.setCheckout(new Date(e.getWhen()));
+                controller.returnBike(order);
                 PaymentDialog.this.dispose();
             }
         });
