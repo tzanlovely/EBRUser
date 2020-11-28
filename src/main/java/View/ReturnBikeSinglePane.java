@@ -6,6 +6,7 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ReturnBikeSinglePane extends JPanel {

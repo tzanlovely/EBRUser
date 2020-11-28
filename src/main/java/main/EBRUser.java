@@ -1,5 +1,6 @@
 package main;
 
+import View.SearchPanel;
 import controller.ReturnBikeController;
 
 import javax.swing.*;
@@ -18,9 +19,9 @@ public class EBRUser extends JFrame {
         BorderLayout layout = new BorderLayout();
         rootPanel.setLayout(layout);
         rootPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-
+        rootPanel.add(new SearchPanel());
         controller = new ReturnBikeController();
-        add(controller.getListPane());
+        rootPanel.add(controller.getReturnBikePage());
 
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setVisible(true);

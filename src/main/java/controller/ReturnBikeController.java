@@ -1,11 +1,14 @@
 package controller;
 
+import View.MainPanel;
 import View.ReturnBikeListPane;
 import View.ReturnBikeSinglePane;
+import View.SearchPanel;
 import api.API;
 import model.Bike;
 import model.Order;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class ReturnBikeController {
     private ReturnBikeListPane listPane;
     private List<ReturnBikeSinglePane> listSinglePane;
     private API api = new API();
+    private JPanel mainPanel;
 
     public ReturnBikeController() {
         listSinglePane = new ArrayList<ReturnBikeSinglePane>();
@@ -49,7 +53,8 @@ public class ReturnBikeController {
         return api.getBike();
     }
 
-    public ReturnBikeListPane getListPane() {
-        return listPane;
+    public JPanel getReturnBikePage() {
+
+        return new MainPanel(new SearchPanel(), listPane);
     }
 }
